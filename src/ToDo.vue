@@ -1,3 +1,55 @@
+<template> 
+<div id="app">
+  <div class="ToDo">
+    <h1 class="ToDo-Header">Vue Workshop</h1>
+    <div class="ToDo-Container">
+      <div class="ToDo-Content">
+        <ToDoItem 
+          v-for="todo in list"
+          :todo="todo"
+          @delete="onDeleteItem"
+          :key="todo.id"
+          />
+      </div>
+    </div>
+  </div>
+</div>
+</template>
+
+<script>
+
+import ToDoItem from './components/ToDoItem.vue'
+
+export default {
+  name:  'to-do',
+  components: {
+    ToDoItem
+  },
+  data() {
+    return {
+    list: [
+      {
+        id: 1,
+        text: 'Stretch Break'
+      },
+      {
+        id: 2,
+        text: 'Wait 15 minutes'
+      },
+      {
+        id: 3,
+        text: 'Stretch Break(again)'
+      }
+    ],
+    todo: '',
+    }
+  },
+  methods: {
+
+  }
+}
+</script>
+
 <style>
 
   body {
